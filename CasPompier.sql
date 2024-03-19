@@ -18,7 +18,7 @@ CREATE TABLE Caserne (
 );
 
 CREATE TABLE TypeEngin (
-    idTypeEngin INT PRIMARY KEY,
+    idTypeEngin VARCHAR(255) PRIMARY KEY,
     LblEngincol VARCHAR(255) NOT NULL
 );
 
@@ -57,14 +57,14 @@ CREATE TABLE Volontaire (
 );
 
 CREATE TABLE Réclamer (
-    idTypeEngin INT,
+    idTypeEngin VARCHAR(255),
     idHabilitation INT,
     nb INT,
     PRIMARY KEY (idTypeEngin, idHabilitation)
 );
 
 CREATE TABLE Prévoir (
-    idTypeEngin INT,
+    idTypeEngin VARCHAR(255),
     idNatureSinistre INT,
     PRIMARY KEY (idTypeEngin, idNatureSinistre)
 );
@@ -86,7 +86,7 @@ CREATE TABLE Affectation (
 CREATE TABLE Engin (
     Numéro VARCHAR(255) NOT NULL,
     idCaserne INT,
-    idTypeEngin INT,
+    idTypeEngin VARCHAR(255),
     PRIMARY KEY (Numéro, idCaserne, idTypeEngin)
 );
 

@@ -15,7 +15,7 @@ if (isset ($_POST['valider'])) {
         $pompier = new Pompier();
         $pompier->hydrate($data);
         // Ajout du pompier en base de données
-        $pompierManager = new PompierManager();
+        $pompierManager = new PompierManager($db);
         $pompierManager->add($pompier);
         header('Location: inscriptionOK.php');
         exit;

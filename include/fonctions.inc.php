@@ -24,7 +24,7 @@ function validatePost($data)
   // Validation de la date de naissance
   if (!isset ($data['date_naissance']) || empty ($data['date_naissance'])) {
     $errors['date_naissance'] = 'La date de naissance est obligatoire.';
-  } else if (!isValidDate($data['date_naissance'])) {
+  } else if (!preg_match('/^\d{2,4}-\d{1,2}-\d{2,4}$/', $data['date_naissance'])) {
     $errors['date_naissance'] = 'La date de naissance n\'est pas valide.';
   }
 
@@ -73,7 +73,7 @@ function validatePost($data)
   // Validation du type-pompier
   if (!isset ($data['type-pompier']) || empty ($data['type-pompier'])) {
     $errors['type-pompier'] = 'Le type-pompier est obligatoire.';
-  } else if ($data['type-pompier'] != 'Professionel' && $data['type-pompier'] != 'Volontaire') {
+  } else if ($data['type-pompier'] != 'professionnel' && $data['type-pompier'] != 'volontaire') {
     $errors['type-pompier'] = 'Le type-pompier doit être Professionel ou Volontaire.';
   }
 
