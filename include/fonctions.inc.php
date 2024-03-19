@@ -71,10 +71,10 @@ function validatePost($data)
   }
 
   // Validation du type-pompier
-  if (!isset ($data['type-pompier']) || empty ($data['type-pompier'])) {
-    $errors['type-pompier'] = 'Le type-pompier est obligatoire.';
-  } else if ($data['type-pompier'] != 'professionnel' && $data['type-pompier'] != 'volontaire') {
-    $errors['type-pompier'] = 'Le type-pompier doit être Professionel ou Volontaire.';
+  if (!isset ($data['type_pompier']) || empty ($data['type_pompier'])) {
+    $errors['type_pompier'] = 'Le type_pompier est obligatoire.';
+  } else if ($data['type_pompier'] != 'professionnel' && $data['type_pompier'] != 'volontaire') {
+    $errors['type_pompier'] = 'Le type_pompier doit être Professionel ou Volontaire.';
   }
 
   return $errors;

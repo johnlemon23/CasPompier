@@ -6,7 +6,7 @@ require_once 'classes/PompierManager.class.php';
 if (isset ($_POST['valider'])) {
     // Récupération des données POST
     $data = $_POST;
-
+    var_dump($_POST);
     // Validation des données
     $errors = validatePost($data);
 
@@ -14,6 +14,8 @@ if (isset ($_POST['valider'])) {
         // Création d'un objet Pompier
         $pompier = new Pompier();
         $pompier->hydrate($data);
+        echo "<br>";
+        var_dump($pompier);
         // Ajout du pompier en base de données
         $pompierManager = new PompierManager($db);
         $pompierManager->add($pompier);

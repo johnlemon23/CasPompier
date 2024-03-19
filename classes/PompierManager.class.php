@@ -65,9 +65,8 @@ class PompierManager
     // Méthode pour mettre à jour un pompier
     public function update(Pompier $pompier)
     {
-        $query = $this->db->prepare('UPDATE pompier SET matricule = :matricule, date_naissance = :date_naissance, nom = :nom, prenom = :prenom, sexe = :sexe, grade = :grade, telephone = :telephone, caserne = :caserne, type_pompier = :type_pompier WHERE id = :id');
+        $query = $this->db->prepare('UPDATE pompier SET matricule = :matricule, date_naissance = :date_naissance, nom = :nom, prenom = :prenom, sexe = :sexe, grade = :grade, telephone = :telephone, caserne = :caserne, type_pompier = :type_pompier WHERE matricule = :matricule');
 
-        $query->bindValue(':id', $pompier->getId());
         $query->bindValue(':matricule', $pompier->getMatricule());
         $query->bindValue(':date_naissance', $pompier->getDateNaissance());
         $query->bindValue(':nom', $pompier->getNom());

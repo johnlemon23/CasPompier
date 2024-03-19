@@ -44,7 +44,7 @@
     </div>
     <div class="form-group">
       <label for="type-pompier">Type pompier</label>
-      <select class="form-control" id="type-pompier" name="type-pompier" required>
+      <select class="form-control" id="type-pompier" name="type_pompier" required>
         <option value="professionnel">Professionnel</option>
         <option value="volontaire">Volontaire</option>
       </select>

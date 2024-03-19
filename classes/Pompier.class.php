@@ -2,9 +2,7 @@
 
 class Pompier
 {
-
     // Attributs
-    private $id;
     private $matricule;
     private $date_naissance;
     private $nom;
@@ -19,7 +17,6 @@ class Pompier
     public function __construct()
     {
         // Initialisation des attributs
-        $this->id = null;
         $this->matricule = null;
         $this->date_naissance = null;
         $this->nom = null;
@@ -32,16 +29,6 @@ class Pompier
     }
 
     // Getters et setters
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
     public function getMatricule()
     {
         return $this->matricule;
@@ -57,7 +44,7 @@ class Pompier
         return $this->date_naissance;
     }
 
-    public function setDateNaissance($date_naissance)
+    public function setDate_Naissance($date_naissance)
     {
         $this->date_naissance = $date_naissance;
     }
@@ -127,7 +114,7 @@ class Pompier
         return $this->type_pompier;
     }
 
-    public function setTypePompier($type_pompier)
+    public function setType_Pompier($type_pompier)
     {
         $this->type_pompier = $type_pompier;
     }
@@ -138,11 +125,12 @@ class Pompier
         foreach ($data as $key => $value) {
             $method = 'set' . ucfirst($key);
             if (method_exists($this, $method)) {
+                echo "<br>";
+                var_dump($method);
                 $this->$method($value);
             }
         }
     }
-
 }
 
 ?>
