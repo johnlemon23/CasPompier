@@ -1,0 +1,31 @@
+Employeur(idEmployeur[primaire], NomEmployeur, PrenomEmployeur, TelEmployeur)
+
+Habilitation(idHabilitataion[primaire], LblHabilitataion)
+
+Caserne(idCaserne[primaire], NomCaserne)
+
+TypeEngin(idTypeEngin[primaire], LblEngincol)
+
+NatureSinistre (idNatureSinistre[primaire], LblNatureSinistre)
+
+Grade(idGrade[primaire], LblGrade)
+
+
+Pompier(Matricule[primaire], NomPompier, PrenomPompier, DateNaissPompier, TelPompier, SexePompier, #idGrade)
+
+
+Professionnel(#MatPro[primaire], DateEmbauche, Indice)
+
+Volontaire(#MatVolontaire[primaire], Bip, #idEmployeur)
+
+
+Réclamer({#idTypeEngin, #idHabilitataion}[primaire], nb)
+
+Prévoir({#idTypeEngin, #idNatureSinistre}[primaire])
+
+Exercer({#Matricule, #idHabilitataion}[primaire], Date)
+
+
+Affectation({Matricule + Date}[primaire], #idCaserne)
+
+Engin({Numéro + #idCaserne + #idTypeEngin}[primaire])
