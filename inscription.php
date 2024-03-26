@@ -1,4 +1,10 @@
-<?php include ("include/entete.inc.php") ?>
+<?php
+include ("include/entete.inc.php");
+include ("include/connection.inc.php");
+require_once 'classes/Pompier.class.php';
+require_once 'classes/PompierManager.class.php';
+$pompierManager = new PompierManager($db);
+?>
 <div class="container">
 
   <div class="jumbotron">
@@ -32,7 +38,13 @@
     </div>
     <div class="form-group">
       <label for="grade">Grade</label>
-      <input type="text" class="form-control" id="grade" name="grade" value="Capitaine" required />
+      <select class="form-control" id="grade" name="grade">
+        <?php foreach ($pompierManager->getAllGrade() as $grade): ?>
+          <option value="<?php echo $grade->idGrade; ?>">
+            <?php echo $grade->LblGrade; ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
     </div>
     <div class="form-group">
       <label for="telephone">Téléphone</label>
@@ -40,7 +52,13 @@
     </div>
     <div class="form-group">
       <label for="caserne">Caserne</label>
-      <input type="text" class="form-control" id="caserne" name="caserne" value="Oussant" required />
+      <select class="form-control" id="caserne" name="caserne">
+        <?php foreach ($pompierManager->getAllCaserne() as $caserne): ?>
+          <option value="<?php echo $caserne->idCaserne; ?>">
+            <?php echo $caserne->NomCaserne; ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
     </div>
     <div class="form-group">
       <label for="type-pompier">Type pompier</label>
